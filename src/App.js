@@ -1,31 +1,30 @@
-import React, { useContext } from 'react';
-import { Button } from "@chakra-ui/react";
-import { ThemeContext } from './ThemeContext';
-import { darkTheme, lightTheme } from './constants/themes';
-import { ThemeProvider } from 'styled-components';
+import { Box, useColorMode, Flex, Heading } from "@chakra-ui/react";
+import DarkModeButton from './components/DarkModeButton';
+import NavBar from './components/NavBar';
 
 function App() {
-
-  const { theme, toggleTheme } = useContext(ThemeContext);
-
   return (
-    <ThemeProvider theme={theme === 'LIGHT' ? lightTheme : darkTheme}>
-      <div className="App">
-        <h1>Welcome to My Homepage</h1>
-        <Button
-          colorScheme="teal"
-          onClick={() => window.location.href = 'https://seibell.github.io/resume'}
+    <Box overflow="hidden" h="100vh">
+      <Flex
+        direction="column"
+        align="center"
+        justify="flex-start"
+        h="100%"
+      >
+        <NavBar />
+        <Flex
+          className="App"
+          direction="column"
+          align="center"
+          justify="center"
+          style={{ minHeight: 'calc(100vh - 40px)', marginTop: '-40px' }}
         >
-          Resume
-        </Button>
-        <Button
-          colorScheme="teal"
-          onClick={toggleTheme}
-        >
-          Toggle Theme
-        </Button>
-      </div>
-    </ThemeProvider>
+          <Heading mb={4} fontSize="3xl">Welcome to My Homepage</Heading>
+
+          <DarkModeButton />
+        </Flex>
+      </Flex>
+    </Box>
   );
 }
 
