@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from 'react';
+import { Button } from "@chakra-ui/react";
+import { ThemeContext } from './ThemeContext';
+import { darkTheme, lightTheme } from './constants/themes';
+import { ThemeProvider } from 'styled-components';
 
 function App() {
+
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ThemeProvider theme={theme === 'LIGHT' ? lightTheme : darkTheme}>
+      <div className="App">
+        <h1>Welcome to My Homepage</h1>
+        <Button
+          colorScheme="teal"
+          onClick={() => window.location.href = 'https://seibell.github.io/resume'}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Resume
+        </Button>
+        <Button
+          colorScheme="teal"
+          onClick={toggleTheme}
+        >
+          Toggle Theme
+        </Button>
+      </div>
+    </ThemeProvider>
   );
 }
 
