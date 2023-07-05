@@ -1,4 +1,8 @@
 export const languageData = { 
+    xd: {
+        greeting: "(づ｡◕‿‿◕｡)づ",
+        name: "My name is Ryan",
+    },
     en: {
         greeting: "Nice to meet you",
         name: "My name is Ryan",
