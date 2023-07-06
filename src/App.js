@@ -7,41 +7,35 @@
   function App() {
     const currentYear = new Date().getFullYear();
     const [selectedLanguage, setSelectedLanguage] = useState("en");
-
+  
     const handleLanguageChange = (event) => {
       setSelectedLanguage(event.target.value);
     };
-
+  
     const { greeting, name } = languageData[selectedLanguage];
-
+  
     const fontSize = useBreakpointValue({ base: "xl", md: "4xl" });
-
+  
     return (
-      <Box overflow="hidden" h="100vh">
+      <Box h="100vh" overflow="hidden" display="flex" flexDirection="column">
+        <NavBar />
         <Flex
+          className="App"
           direction="column"
           align="center"
-          justify="flex-start"
-          h="100%"
+          justify="center"
+          flex="1" 
         >
-          <NavBar />
-          <Flex
-            className="App"
-            direction="column"
-            align="center"
-            justify="center"
-            style={{ minHeight: 'calc(100vh - 40px)', marginTop: '-40px' }}
-          >
-            <Heading fontSize={fontSize}>{greeting}</Heading>
-            <Heading mb={4} fontSize={fontSize}>{name}</Heading>
-            <DarkModeButton />
-          </Flex>
-          <footer className="footer" style={{ marginTop: '0px', fontWeight: 'semibold', fontSize: '10px' }}>
-            © {currentYear} Ryan Lim
-          </footer>
+          <Heading fontSize={fontSize}>{greeting}</Heading>
+          <Heading mb={4} fontSize={fontSize}>{name}</Heading>
+          <DarkModeButton />
         </Flex>
+        <footer className="footer" style={{ fontWeight: 'semibold', fontSize: '10px' }}>
+          © {currentYear} Ryan Lim
+        </footer>
       </Box>
     );
   }
-
+  
   export default App;
+  

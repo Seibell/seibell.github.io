@@ -13,8 +13,9 @@ function NavBar() {
       alignItems="center"
       fontSize="xl"
       flexDirection={flexDirection}
+      justifyContent="center"
     >
-      <Box>
+      <Box display="flex" justifyContent="center">
         <Button
           as="a"
           href="https://seibell.github.io/resume"
@@ -49,8 +50,6 @@ function NavBar() {
           Contact
         </Button>
       </Box>
-
-      <Spacer />
     </Flex>
   );
 }
