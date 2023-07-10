@@ -4,7 +4,8 @@ import { lightTheme, darkTheme } from '../constants/themes';
 function NavBar() {
   const { colorMode } = useColorMode();
   const theme = colorMode === 'dark' ? darkTheme : lightTheme;
-  const flexDirection = useBreakpointValue({ base: "column", md: "row" });
+  // base = phone, md = larger screen
+  const flexDirection = useBreakpointValue({ base : "column", md: "row" });
 
   return (
     <Flex

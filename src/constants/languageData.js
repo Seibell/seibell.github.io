@@ -18,5 +18,9 @@ export const languageData = {
     kr: {
         greeting: "반가워요",
         name: "나는 라이언"
+    },
+    hue: {
+        greeting: "Huehuehue",
+        name: "Huehuehue"
     }
 }

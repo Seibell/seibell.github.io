@@ -30,7 +30,7 @@
           <Heading mb={4} fontSize={fontSize}>{name}</Heading>
           <DarkModeButton />
         </Flex>
-        <footer className="footer" style={{ fontWeight: 'semibold', fontSize: '10px' }}>
+        <footer className="footer" style={{ textAlign: 'center', fontWeight: 'semibold', fontSize: '10px' }}>
           © {currentYear} Ryan Lim
         </footer>
       </Box>
