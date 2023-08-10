@@ -19,7 +19,7 @@ function NavBar() {
       <Box display="flex" justifyContent="center">
         <Button
           as="a"
-          href="https://seibell.github.io/resume"
+          href="https://seibell.github.io/"
           variant="link"
           color={theme.text}
           mr={4}
