@@ -42,7 +42,7 @@ function NavBar() {
         </Button>
         <Button
           as={Link}
-          to="/"
+          to="/contact"
           variant="link"
           color={theme.text}
           mr={4}

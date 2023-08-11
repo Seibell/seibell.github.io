@@ -1,0 +1,29 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies and Build
+      run: |
+        npm ci
+        FORMSPREE_ENDPOINT=${{ secrets.FORMSPREE_ENDPOINT }} npm run build
+
+    - name: Deploy to GitHub Pages
+      run: |
+        npm install gh-pages
+        npm run deploy
