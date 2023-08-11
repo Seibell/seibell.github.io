@@ -1,41 +1,19 @@
-  import { Box, useColorMode, Flex, Heading, Select, useBreakpointValue } from "@chakra-ui/react";
-  import { useState } from "react";
-  import DarkModeButton from './components/DarkModeButton';
-  import NavBar from './components/NavBar';
-  import { languageData } from './constants/languageData';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./components/HomePage";
+import { Projects } from "./components/Project/Projects";
+import "./App.css";
 
-  function App() {
-    const currentYear = new Date().getFullYear();
-    const [selectedLanguage, setSelectedLanguage] = useState("en");
-  
-    const handleLanguageChange = (event) => {
-      setSelectedLanguage(event.target.value);
-    };
-  
-    const { greeting, name } = languageData[selectedLanguage];
-  
-    const fontSize = useBreakpointValue({ base: "xl", md: "4xl" });
-  
-    return (
-      <Box h="100vh" overflow="hidden" display="flex" flexDirection="column">
-        <NavBar />
-        <Flex
-          className="App"
-          direction="column"
-          align="center"
-          justify="center"
-          flex="1" 
-        >
-          <Heading fontSize={fontSize}>{greeting}</Heading>
-          <Heading mb={4} fontSize={fontSize}>{name}</Heading>
-          <DarkModeButton />
-        </Flex>
-        <footer className="footer" style={{ textAlign: 'center', fontWeight: 'semibold', fontSize: '10px' }}>
-          © {currentYear} Ryan Lim
-        </footer>
-      </Box>
-    );
-  }
-  
-  export default App;
-  
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/projects" element={<Projects />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+

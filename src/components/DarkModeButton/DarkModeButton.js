@@ -1,8 +1,8 @@
 import { Box, Button, Image, useColorMode } from "@chakra-ui/react";
 import React from 'react';
-import SUN_FILL from './Images/Sun_fill.png'; 
-import MOON_FILL from './Images/Moon_fill.png'; 
-import { lightTheme, darkTheme } from '../constants/themes';
+import SUN_FILL from './Sun_fill.png'; 
+import MOON_FILL from './Moon_fill.png'; 
+import { lightTheme, darkTheme } from '../../constants/themes';
 
 function DarkModeButton() {
   const { colorMode, toggleColorMode } = useColorMode();
