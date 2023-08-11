@@ -20,7 +20,7 @@ jobs:
 
     - name: Install dependencies and Build
       run: |
-        npm ci
+        npm i
         FORMSPREE_ENDPOINT=${{ secrets.FORMSPREE_ENDPOINT }} npm run build
 
     - name: Deploy to GitHub Pages

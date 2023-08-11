@@ -1,12 +1,13 @@
 import { Box, Button, Flex, useColorMode, useBreakpointValue } from "@chakra-ui/react";
 import { lightTheme, darkTheme } from '../constants/themes';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function NavBar() {
   const { colorMode } = useColorMode();
   const theme = colorMode === 'dark' ? darkTheme : lightTheme;
   // base = phone, md = larger screen
   const flexDirection = useBreakpointValue({ base: "column", md: "row" });
+  const location = useLocation();
 
   return (
     <Flex
@@ -20,36 +21,36 @@ function NavBar() {
       <Box display="flex" justifyContent="center">
       <Button
           as={Link}
-          to="/"
+          to={location.pathname === "/resume" ? "/" : "/resume"}
           variant="link"
           color={theme.text}
           mr={4}
           ml={4}
           size="xl"
         >
-          Resume
+          {location.pathname === "/resume" ? "Home" : "Resume"}
         </Button>
         <Button
           as={Link}
-          to="/projects"
+          to={location.pathname === "/projects" ? "/" : "/projects"}
           variant="link"
           color={theme.text}
           mr={4}
           ml={4}
           size="xl"
         >
-          Projects
+          {location.pathname === "/projects" ? "Home" : "Projects"}
         </Button>
         <Button
           as={Link}
-          to="/contact"
+          to={location.pathname === "/contact" ? "/" : "/contact"}
           variant="link"
           color={theme.text}
           mr={4}
           ml={4}
           size="xl"
         >
-          Contact
+          {location.pathname === "/contact" ? "Home" : "Contact"}
         </Button>
       </Box>
     </Flex>
