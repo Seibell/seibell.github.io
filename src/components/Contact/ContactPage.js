@@ -6,6 +6,9 @@ import './Contact.css';
 import { resumeData } from '../Resume/ResumeText';
 
 const ContactPage = () => {
+
+    const currentYear = new Date().getFullYear();
+    
     return (
         <div>
             <NavBar />
@@ -20,6 +23,9 @@ const ContactPage = () => {
                 <h1>If you have any queries or would like to get in touch, please fill out the form below.</h1>
             </div>
             <ContactForm />
+            <footer className="footer" style={{ textAlign: 'center', fontWeight: 'semibold', fontSize: '10px' }}>
+                © {currentYear} Ryan Lim. All Rights Reserved
+            </footer>
         </div>
     );
 };
